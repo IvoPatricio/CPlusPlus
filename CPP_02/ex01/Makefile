@@ -1,0 +1,39 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ifreire- <ifreire-@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/26 19:51:20 by ifreire-          #+#    #+#              #
+#    Updated: 2023/03/23 17:18:40 by ifreire-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SRC				= srcs/Fixed.cpp srcs/main.cpp
+
+OBJ				= $(SRC:.cpp=.o)
+
+CC				= c++
+
+FLAGS			= -Wall -Wextra -Werror -std=c++98
+
+NAME			= a.out
+
+%.o: %.cpp
+	$(CC) $(FLAGS) -o $@ -c $<
+
+all:			$(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+
+clean:
+				rm -f $(OBJ)
+
+fclean: 		clean
+				rm -f $(NAME)
+
+re: 			fclean $(NAME)
+
+.PHONY: all clean fclean re
