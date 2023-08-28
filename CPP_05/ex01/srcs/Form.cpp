@@ -33,7 +33,7 @@ Form &Form::operator=(Form const &src)
 
 std::ostream & operator<<(std::ostream & o, Form &src) 
 {
-    o << src.getName() << ", grade required to sign: " << src.getGrade_sign() << " and execute: " << src.getGrade_exe();
+    o << "Signed (FalseOrTrue):" << src.getSign_value() << " " << src.getName() << ", grade required to sign: " << src.getGrade_sign() << " and execute: " << src.getGrade_exe();
     return o;
 }
 
