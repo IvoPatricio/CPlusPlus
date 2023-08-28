@@ -3,7 +3,7 @@
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm",
 	145, 137)
 {
-	this->target = "President";
+	this->target = "Shrubbery";
 	std::cout << "+ShrubberyCreationForm Default Constructor called" << std::endl;
 }
 

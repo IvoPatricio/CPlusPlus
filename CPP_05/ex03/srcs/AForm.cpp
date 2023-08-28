@@ -9,9 +9,9 @@ AForm::AForm(std::string const name, int const grade_sign, int const grade_exe) 
 {
     std::cout << "+AForm Default Constructor called" << std::endl;
     std::cout << getName() << " grade required is ";
-    if (grade_sign < 1 || grade_exe < 1)
+    if (this->grade_sign < 1 || this->grade_exe < 1)
         throw GradeTooHighException();
-    else if (grade_sign > 150 || grade_exe > 150)
+    else if (this->grade_sign > 150 || this->grade_exe > 150)
         throw GradeTooLowException();
     std::cout << getGrade_sign() << " and " << getGrade_exe() << std::endl;
 }
@@ -33,7 +33,7 @@ AForm &AForm::operator=(AForm const &src)
 
 std::ostream & operator<<(std::ostream & o, AForm &src) 
 {
-    o << "Signed (FalseOrTrue):" << src.getSign_value() << " " << src.getName() << ", grade required to sign: " << src.getGrade_sign() << " and execute: " << src.getGrade_exe();
+    o << src.getName() << ", grade required to sign: " << src.getGrade_sign() << " and execute: " << src.getGrade_exe();
     return o;
 }
 
@@ -42,48 +42,29 @@ AForm::~AForm()
     std::cout << "-AForm Destructor called" << std::endl;
 }
 
-void AForm::beSigned(Bureaucrat const &src)
-{
-    int grade;
-
-    grade = src.grade;
-    if (grade <= grade_sign && grade <= grade_exe)
-        this->sign = true;
-    else if (grade >= grade_sign || grade >= grade_exe)
-    {
-        this->sign = false;
-        std::cout << getName() << " ";
-        if (grade >= grade_sign)
-            this->reason = "grade required to sign it";
-        else
-            this->reason = "grade required to execute it";
-        throw GradeTooLowException();
-    }
-}
-
 std::string AForm::getReason() const
 {
-    return (reason);
+    return (this->reason);
 }
 
 bool AForm::getSign_value() const
 {
-    return (sign);
+    return (this->sign);
 }
 
 std::string AForm::getName() const
 {
-    return (name);
+    return (this->name);
 }
 
 int AForm::getGrade_sign() const
 {
-    return (grade_sign);
+    return (this->grade_sign);
 }
 
 int AForm::getGrade_exe() const
 {
-    return (grade_exe);
+    return (this->grade_exe);
 }
 
 void AForm::execute(Bureaucrat const &executor) const
@@ -96,4 +77,20 @@ void AForm::execute(Bureaucrat const &executor) const
     }
     else
         throw GradeTooLowException();
+}
+
+void AForm::beSigned(Bureaucrat const &src)
+{
+    if (src.grade <= this->grade_sign && src.grade <= this->grade_exe)
+        this->sign = true;
+    else if (src.grade >= this->grade_sign || src.grade >= this->grade_exe)
+    {
+        this->sign = false;
+        std::cout << getName() << " ";
+        if (src.grade >= this->grade_sign)
+            this->reason = "grade required to sign it";
+        else
+            this->reason = "grade required to execute it";
+        throw GradeTooLowException();
+    }
 }

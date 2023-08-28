@@ -2,7 +2,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) 
 {
-    this->target = "President";
+    this->target = "Robot";
     std::cout << "+RobotomyRequestForm Default Constructor called" << std::endl;
 }
 

@@ -56,14 +56,17 @@ AForm *Intern::makeForm(std::string type_form, std::string target_form)
 				x = i;
 				case (0) :
 					form[0] = new PresidentialPardonForm;
+					x = 0;
 					std::cout << "Intern creates " << target_form << std::endl;
 					break;
 				case (1) :
 					form[1] = new RobotomyRequestForm;
+					x = 1;
 					std::cout << "Intern creates " << target_form << std::endl;
 					break;
 				case (2) :
 					form[2] = new ShrubberyCreationForm;
+					x = 2;
 					std::cout << "Intern creates " << target_form << std::endl;
 					break;
 			}
