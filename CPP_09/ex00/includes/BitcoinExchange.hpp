@@ -8,6 +8,8 @@
 #include "algorithm"
 #include "exception"
 #include "fstream"
+#include <ctype.h>
+#include "map"
 
 class BitcoinExchange
 {
