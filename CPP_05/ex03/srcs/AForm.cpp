@@ -31,9 +31,9 @@ AForm &AForm::operator=(AForm const &src)
     return *this;
 }
 
-std::ostream & operator<<(std::ostream & o, AForm &obj) 
+std::ostream & operator<<(std::ostream & o, AForm &src) 
 {
-    o << obj.getName() << ", AForm grade " << obj.getSign_value() << ".";
+    o << src.getName() << ", grade required to sign: " << src.getGrade_sign() << " and execute: " << src.getGrade_exe();
     return o;
 }
 
@@ -52,7 +52,7 @@ void AForm::beSigned(Bureaucrat const &src)
     else if (grade >= grade_sign || grade >= grade_exe)
     {
         this->sign = false;
-        std::cout << getName() << " grade required to sign is ";
+        std::cout << getName() << " ";
         if (grade >= grade_sign)
             this->reason = "grade required to sign it";
         else

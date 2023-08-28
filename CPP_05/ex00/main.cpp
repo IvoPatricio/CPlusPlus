@@ -11,6 +11,7 @@ int main(void)
         a.decrement_grade();
         a.decrement_grade();
         a.decrement_grade();
+        std::cout << a << std::endl;
         a.increment_grade();
         a.increment_grade();
         a.increment_grade();

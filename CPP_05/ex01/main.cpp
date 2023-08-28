@@ -8,7 +8,8 @@ int main(void)
     Form form1("form1", 13, 13);
     Form form2(form1);
     Bureaucrat a("Ana", 10);
-    std::cout << "Form 2 grade ex: " << form2.getGrade_exe() << std::endl;
+    std::cout << form2.getName() << " grade to execute is " << form2.getGrade_exe() << std::endl;
+    std::cout << form2 << std::endl;
     try
     {
         form2.beSigned(a);
