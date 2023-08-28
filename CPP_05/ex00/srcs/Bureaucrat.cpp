@@ -67,7 +67,6 @@ void Bureaucrat::decrement_grade()
     this->grade++;
     if (this->grade > 150)
         throw GradeTooLowException();
-    std::cout << "a\n";
     std::cout << getName() << ", bureaucrat new grade: ";
     std::cout << getGrade() << std::endl;
 }
