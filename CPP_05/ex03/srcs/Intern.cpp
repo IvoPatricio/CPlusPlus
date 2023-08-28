@@ -48,6 +48,7 @@ AForm *Intern::makeForm(std::string type_form, std::string target_form)
 	int err = 0;
 	while (i < 3)
 	{
+
 		if (type[i] == type_form)
 		{
 			err++;
