@@ -6,7 +6,7 @@
 #include <string>
 
 template <typename T>
-void iter(T *x, int length, void (*f)(T const &))
+void iter(T *x, int length, void (f)(T const &))
 {
     int i = 0;
     while (i < length)

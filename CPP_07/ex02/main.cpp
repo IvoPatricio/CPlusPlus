@@ -1,4 +1,3 @@
-#include <iostream>
 #include "./includes/Array.hpp"
 #include "stdlib.h"
 
@@ -7,9 +6,10 @@ int main(int, char**)
 {
     int* mirror = new int[MAX_VAL];
     Array<int> numbers(MAX_VAL);
-    //Array<int> a = numbers;
     Array<int> a(numbers);
+    //Array<int> a = numbers;
     a.getSize();
+    numbers.getSize();
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -33,7 +33,7 @@ int main(int, char**)
             return 1;
         }
     }
-    try
+    /*try
     {
         numbers[-2] = 0;
     }
@@ -45,15 +45,10 @@ int main(int, char**)
     {
         numbers[MAX_VAL] = 0;
     }
-    catch(const std::exception& e)
+    catch(std::exception& e)
     {
         std::cerr << e.what() << '\n';
-    }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
+    }*/
     delete [] mirror;
     return 0;
 }
