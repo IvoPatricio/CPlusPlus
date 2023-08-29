@@ -33,7 +33,7 @@ int main(int, char**)
             return 1;
         }
     }
-    /*try
+    try
     {
         numbers[-2] = 0;
     }
@@ -48,7 +48,7 @@ int main(int, char**)
     catch(std::exception& e)
     {
         std::cerr << e.what() << '\n';
-    }*/
+    }
     delete [] mirror;
     return 0;
 }

@@ -24,8 +24,7 @@ Serializer::~Serializer()
     std::cout << "-Serializer Destructor called" << std::endl;
 }
 
-//It's an unsigned integer type exactly the size of a pointer. Whenever you need to do something 
-//unusual with a pointer - like for example invert all bits(basically never used...)
+// Least used type_cast in CPP
 
 uintptr_t Serializer::serialize(Data *ptr)
 {

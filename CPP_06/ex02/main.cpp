@@ -3,7 +3,7 @@
 Base *generate(void)
 {
 	int i;
-	std::srand(time(0));
+	std::srand(time(NULL));
 	i = std::rand() % 3;
 
 	if (i == 0)
@@ -27,11 +27,11 @@ Base *generate(void)
 void identify(Base *p)
 {
 	if (dynamic_cast<A*>(p) != NULL)
-		std::cout << "Pointer of the object class::Base A" << std::endl;
-	if (dynamic_cast<B*>(p) != NULL)
-		std::cout << "Pointer of the object class::Base B" << std::endl;
-	if (dynamic_cast<C*>(p) != NULL)
-		std::cout << "Pointer of the object class::Base C" << std::endl;
+		std::cout << "Pointer of the object class::Base A: " << p << std::endl;
+	else if (dynamic_cast<B*>(p) != NULL)
+		std::cout << "Pointer of the object class::Base B: " << p << std::endl;
+	else if (dynamic_cast<C*>(p) != NULL)
+		std::cout << "Pointer of the object class::Base C: " << p << std::endl;
 }
 
 void identify(Base &p)
@@ -68,18 +68,17 @@ void identify(Base &p)
     	}
     }
     if (BaseA == 0)
-        std::cout << "Address of the object class::Base A" << std::endl;
+        std::cout << "Address of the object class::Base A: " << &p << std::endl;
     else if (BaseB == 0)
-        std::cout << "Address of the object class::Base B" << std::endl;
+        std::cout << "Address of the object class::Base B: " << &p << std::endl;
     else if (BaseC == 0)
-        std::cout << "Address of the object class::Base C" << std::endl;
-	else
-		std::cout << "Error" << std::endl;
+        std::cout << "Address of the object class::Base C: " << &p << std::endl;
 }
 
 int main(void)
 {
 	Base *del;
+
 	std::srand(time(0));
 	del = generate();
 	identify(del);

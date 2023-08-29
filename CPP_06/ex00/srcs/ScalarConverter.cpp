@@ -35,7 +35,7 @@ void ScalarConverter::Convert(std::string const str)
     float   float1 = 0.0;
     double  double1 = 0.0;
     std::string result;
-    
+
     std::string infinite[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
     while (i < 6)
     {
@@ -78,7 +78,7 @@ void ScalarConverter::Convert(std::string const str)
         }
         if (check_float == 1)
         {
-            std::cout << "\n---FLOAT---\n" << std::endl;
+            std::cout << "\n---FLOAT---" << std::endl;
             float1 = std::strtof(str.c_str(), &pend);
             int1 = static_cast<int>(float1);
             char1 = static_cast<char>(float1);
@@ -86,7 +86,7 @@ void ScalarConverter::Convert(std::string const str)
         }
         else if (check_dot == 1)
         {
-            std::cout << "\n---DOUBLE---\n" << std::endl;
+            std::cout << "\n---DOUBLE---" << std::endl;
             double1 = std::strtod(str.c_str(), &pend);
             int1 = static_cast<int>(double1);
             char1 = static_cast<char>(double1);
@@ -97,14 +97,14 @@ void ScalarConverter::Convert(std::string const str)
             float1 = std::strtof(str.c_str(), &pend);
             if (float1 > 2147483648 || float1 < INT32_MIN)
             {
-                std::cout << "\n---(OVERFLOW-INT)---\n" << std::endl;
+                std::cout << "\n---(OVERFLOW-INT)---" << std::endl;
                 int1 = static_cast<int>(float1);
                 char1 = static_cast<char>(float1);
                 double1 = static_cast<double>(float1);
             }
             else
             {
-                std::cout << "\n---INT---\n" << std::endl;
+                std::cout << "\n---INT---" << std::endl;
                 int1 = std::atoi(str.c_str());
                 char1 = static_cast<char>(int1);
                 float1 = static_cast<float>(int1);
