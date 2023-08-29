@@ -15,8 +15,8 @@ public:
     Array()
     {
         std::cout << "+Default Constructor called\n";
-        this->Array_type = new T[1];
-        size = 1;
+        this->Array_type = new T[0];
+        size = 0;
     }
 
     Array(unsigned int n)

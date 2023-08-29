@@ -4,6 +4,8 @@
 #define MAX_VAL 2
 int main(int, char**)
 {
+    Array<int> b;
+    b.getSize();
     int* mirror = new int[MAX_VAL];
     Array<int> numbers(MAX_VAL);
     Array<int> a(numbers);
