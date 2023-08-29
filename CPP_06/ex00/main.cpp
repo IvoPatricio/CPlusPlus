@@ -11,8 +11,6 @@ int main(int argc, char **argv)
 int main(void)
 {
     std::string arg;
-    int i = 0;
-    int x = 0;
 
     std::cout << "Insert Valid Value: \n";
     std::cin >> arg;

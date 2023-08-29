@@ -14,7 +14,8 @@ ScalarConverter::ScalarConverter(ScalarConverter const &src)
 ScalarConverter &ScalarConverter::operator=(ScalarConverter const &src)
 {
     std::cout  <<"+ScalarConverter Assignment constructor called" << std::endl;
-    *this = src;
+    if (this != &src)
+        *this = src;
     return *this;
 }
 
@@ -29,10 +30,10 @@ void ScalarConverter::Convert(std::string const str)
     int     check_float = 0;
     int     check_dot = 0;
     char    *pend;
-    char    char1;
-    int     int1;
-    float   float1;
-    double  double1;
+    char    char1 = '\0';
+    int     int1 = 0;
+    float   float1 = 0.0;
+    double  double1 = 0.0;
     std::string result;
     
     std::string infinite[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
@@ -69,9 +70,9 @@ void ScalarConverter::Convert(std::string const str)
             check_float++;
         else
         {
-            for (int i = 0; i < str.size(); i++)
+            for (std::string::size_type x = 0; x < str.size(); x++)
             {
-                if (str[i] == '.')
+                if (str[x] == '.')
                     check_dot++;
             }
         }

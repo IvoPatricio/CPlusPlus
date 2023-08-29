@@ -1,6 +1,6 @@
 #include "./includes/Base.hpp"
 
-Base * generate(void)
+Base *generate(void)
 {
 	int i;
 	std::srand(time(0));

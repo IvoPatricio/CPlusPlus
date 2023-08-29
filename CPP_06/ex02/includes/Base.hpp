@@ -18,6 +18,9 @@
 class Base
 {
 public:
+    Base();
+	Base(Base const &src);
+	Base &operator=(Base const &src);
     virtual ~Base();
 };
 

@@ -14,7 +14,8 @@ Serializer::Serializer(Serializer const &src)
 Serializer &Serializer::operator=(Serializer const &src)
 {
     std::cout  <<"+Serializer Assignment constructor called" << std::endl;
-    *this = src;
+    if (this != &src)
+        *this = src;
     return *this;
 }
 
@@ -24,7 +25,7 @@ Serializer::~Serializer()
 }
 
 //It's an unsigned integer type exactly the size of a pointer. Whenever you need to do something 
-//unusual with a pointer - like for example invert all bits(basically never used in CPP...)
+//unusual with a pointer - like for example invert all bits(basically never used...)
 
 uintptr_t Serializer::serialize(Data *ptr)
 {

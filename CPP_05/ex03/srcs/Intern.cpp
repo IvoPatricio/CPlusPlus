@@ -54,7 +54,6 @@ AForm *Intern::makeForm(std::string type_form, std::string target_form)
 			err++;
 			switch (i)
 			{
-				x = i;
 				case (0) :
 					form[0] = new PresidentialPardonForm;
 					x = 0;
