@@ -16,9 +16,9 @@ int main()
 
     std::cout << "Stack size is: " << mstack.size() << std::endl;
     mstack.pop();
+    std::cout << "Stack top is: " << mstack.top() << std::endl;
     std::cout << "Stack size is: " << mstack.size() << std::endl;
 
-    std::cout << "Stack top is: " << mstack.top() << std::endl;
 
     mstack.push(3);
     mstack.push(5);

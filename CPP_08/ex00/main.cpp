@@ -19,7 +19,39 @@ int main(void)
         easyfind(container, 75);
         easyfind(container, 100);
         easyfind(container, 50);
-        //easyfind(container, 10);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    try
+    {
+        easyfind(container, -10);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    try
+    {
+        easyfind(container, 9999);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    try
+    {
+        easyfind(container, -100);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    try
+    {
+        easyfind(container, 250);
     }
     catch(const std::exception& e)
     {

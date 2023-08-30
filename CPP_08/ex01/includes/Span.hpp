@@ -35,7 +35,15 @@ public:
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("Error the container is FULL");
+				return ("Error, the container is FULL");
+			}
+	};
+	class Exception_size : public std::exception
+	{
+		public:
+			virtual const char* what() const throw()
+			{
+				return ("\nError, the container is either empty or of size one");
 			}
 	};
 };

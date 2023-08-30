@@ -1,11 +1,11 @@
 #include "../includes/Span.hpp"
 
-Span::Span() : Max_N(0), Low(2147483647), High(0)
+Span::Span() : Container(), Max_N(0), Low(2147483647), High(0)
 {
     std::cout << "+Span Default Constructor called" << std::endl;
 }
 
-Span::Span(unsigned int N) : Max_N(N), Low(2147483647), High(0)
+Span::Span(unsigned int N) : Container(), Max_N(N), Low(2147483647), High(0)
 {
     std::cout << "+Span Default Constructor called" << std::endl;
 }
@@ -37,7 +37,7 @@ void Span::addNumber(int value)
 {
     if (Container.size() >= Max_N)
         throw Exception_span();
-    Container.insert(Container.begin(), value);
+    Container.insert(Container.end(), value);
 }
 
 void Span::manyNumbers(int add)
@@ -65,44 +65,46 @@ void Span::printNumbers()
 
 unsigned int Span::shortestSpan()
 {
-    unsigned int x = 0;
-    unsigned int z = 0;
+    std::vector<int>::iterator begin1 = Container.begin();
+    std::vector<int>::iterator begin2 = Container.begin();
+    std::vector<int>::iterator end = Container.end();
 
-    while (x < Container.size())
+    if (Container.size() <= 1)
+        throw Exception_size();
+    while (begin1 != end)
     {
-        while (z < Container.size())
+        while (begin2 != end)
         {
-            if (Container.at(x) >= Container.at(z))
+            unsigned int i1 = begin1 - Container.begin();
+            unsigned int i2 = begin2 - Container.begin();
+            if (Container.at(i1) >= Container.at(i2))
             {
-                if (((Container.at(x) - Container.at(z)) < Low) && x != z)
-                    Low = Container.at(x) - Container.at(z);
+                if (((Container.at(i1) - Container.at(i2)) < Low) && i1 != i2)
+                    Low = Container.at(i1) - Container.at(i2);
             }
-            z++;
+            begin2++;
         }
-        z = 0;
-        x++;
+        begin2 = Container.begin();
+        begin1++;
     }
     return Low;
 }
 
 unsigned int Span::longestSpan()
 {
-    unsigned int x = 0;
-    unsigned int z = 0;
+    if (Container.size() <= 1)
+        throw Exception_size();
+    std::vector<int>::iterator MaxValue;
+    std::vector<int>::iterator MinValue;
 
-    while (x < Container.size())
+    MaxValue = (std::max_element(Container.begin(), Container.end()));
+    MinValue = (std::min_element(Container.begin(), Container.end()));
+    int minV = *MinValue;
+    int maxV = *MaxValue;
+    while (minV < maxV)
     {
-        while (z < Container.size())
-        {
-            if (Container.at(x) >= Container.at(z))
-            {
-                if (((Container.at(x) - Container.at(z)) > High) && x != z)
-                    High = Container.at(x) - Container.at(z);
-            }
-            z++;
-        }
-        z = 0;
-        x++;
+        minV++;
+        High++;
     }
     return High;
 }

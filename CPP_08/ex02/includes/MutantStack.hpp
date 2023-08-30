@@ -10,7 +10,7 @@ class MutantStack : public std::stack<T>
 private:
 	using std::stack<T>::c;
 public:
-	// just declaring the poly stack depending on the Type into a container
+	// just declaring stacktype to the container
 	typedef typename std::stack<T>::container_type MutantContainer;
 	// so main works with any container type without std::iterator
 	typedef typename MutantContainer::iterator iterator;
@@ -28,13 +28,13 @@ public:
 	MutantStack(MutantStack const &src)
 	{
 		std::cout << "+MutantStack Copy constructor called" << std::endl;
-		c = src.c;
+		this->c = src.c;
 	}
 	MutantStack &operator=(MutantStack const &src)
 	{
 		std::cout  <<"+MutantStack Assignment constructor called " << std::endl;
 		if (this != &src)
-			c = src.c;
+			this->c = src.c;
 		return (*this);
 	}
 

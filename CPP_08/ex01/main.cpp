@@ -3,15 +3,16 @@
 int main(void)
 {
     Span random(10000);
+    Span a;
 
     try
     {
         random.addNumber(9);
         random.addNumber(1);
-        random.addNumber(2);
-        random.addNumber(39);
+        random.addNumber(3);
+        random.addNumber(50);
         random.addNumber(15);
-        random.addNumber(90);
+        random.addNumber(150);
         //random.manyNumbers(10000);
         //random.printNumbers();
         std::cout << "ShortestSpan: " << random.shortestSpan() << std::endl;

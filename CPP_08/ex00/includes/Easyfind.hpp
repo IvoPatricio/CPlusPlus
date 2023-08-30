@@ -22,13 +22,12 @@ T easyfind(T container, int value)
 {
     int count = 0;
 
-    count = std::count(container.begin(), container.end(), value);
     /*for (unsigned int i = 0; i < container.size(); i++)
     {
-        std::cout << container.at(i) << std::endl;
         if (container.at(i) == value)
             count++;
     }*/
+    count = std::count(container.begin(), container.end(), value);
     if (count == 0)
         throw Exception_find();
     return container;
